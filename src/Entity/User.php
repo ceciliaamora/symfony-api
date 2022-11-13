@@ -25,6 +25,9 @@ class User
     #[ORM\Column(length: 255)]
     private ?string $password = null;
 
+    #[ORM\ManyToOne(inversedBy: 'user', cascade:['persist'])]
+    private ?Lecture $lecture = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +77,18 @@ class User
     public function setPassword(string $password): self
     {
         $this->password = password_hash($password, PASSWORD_ARGON2I);
+
+        return $this;
+    }
+
+    public function getLecture(): ?Lecture
+    {
+        return $this->lecture;
+    }
+
+    public function setLecture(?Lecture $lecture): self
+    {
+        $this->lecture = $lecture;
 
         return $this;
     }

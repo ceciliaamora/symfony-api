@@ -34,8 +34,8 @@ class Lecture
     #[ORM\ManyToOne(inversedBy: 'lectures', cascade:['persist'])]
     private ?Event $event = null;
 
-    // #[ORM\OneToMany(mappedBy: 'lecture', targetEntity: User::class)]
-    // private Collection $user;
+    #[ORM\OneToMany(mappedBy: 'lecture', targetEntity: User::class)]
+    private Collection $user;
 
     public function __construct()
     {
@@ -107,14 +107,6 @@ class Lecture
         return $this;
     }
 
-    // /**
-    //  * @return Collection<int, User>
-    //  */
-    // public function getUser(): Collection
-    // {
-    //     return $this->user;
-    // }
-
     public function getEventId(): ?Event
     {
         return $this->event;
@@ -126,5 +118,35 @@ class Lecture
 
         return $this;
     }
+
+    // /**
+    //  * @return Collection<int, User>
+    //  */
+    // public function getUser(): Collection
+    // {
+    //     return $this->user;
+    // }
+
+    // public function addUser(User $user): self
+    // {
+    //     if (!$this->user->contains($user)) {
+    //         $this->user->add($user);
+    //         $user->setLecture($this);
+    //     }
+
+    //     return $this;
+    // }
+
+    // public function removeUser(User $user): self
+    // {
+    //     if ($this->user->removeElement($user)) {
+    //         // set the owning side to null (unless already changed)
+    //         if ($user->getLecture() === $this) {
+    //             $user->setLecture(null);
+    //         }
+    //     }
+
+    //     return $this;
+    // }
 
 }
