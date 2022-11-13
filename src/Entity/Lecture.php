@@ -22,25 +22,17 @@ class Lecture
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $date = null;
 
-    // #[ORM\Column(type: Types::DATE_MUTABLE, nullable:true)]
-    // private ?\DateTimeInterface $date = null;
-
-    #[ORM\ManyToOne(targetEntity: Event::class)]
-    #[ORM\JoinColumn(name: 'event_id', referencedColumnName:'id')]
-    private Event $event;
-
-    // #[ORM\Column(type: Types::TIME_MUTABLE, nullable:true)]
-    // private ?\DateTimeInterface $start_time = null;
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $start_time = null;
 
-    // #[ORM\Column(type: Types::TIME_MUTABLE, nullable:true)]
-    // private ?\DateTimeInterface $end_time = null;
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $end_time = null;
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
+
+    #[ORM\ManyToOne(inversedBy: 'lectures', cascade:['persist'])]
+    private ?Event $event = null;
 
     // #[ORM\OneToMany(mappedBy: 'lecture', targetEntity: User::class)]
     // private Collection $user;
@@ -77,16 +69,6 @@ class Lecture
         $this->date = $date;
 
         return $this;
-    }
-
-    public function getEventId(): ?Event
-    {
-        return $this->event;
-    }
-
-    public function setEventId(Event $event): void
-    {
-        $this->event = $event;
     }
 
     public function getStartTime(): ?string
@@ -132,5 +114,17 @@ class Lecture
     // {
     //     return $this->user;
     // }
+
+    public function getEventId(): ?Event
+    {
+        return $this->event;
+    }
+
+    public function setEventId(?Event $event): self
+    {
+        $this->event = $event;
+
+        return $this;
+    }
 
 }

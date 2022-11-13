@@ -33,13 +33,13 @@ class Event
     #[Assert\Choice(['Agendado', 'Acontecendo', 'Finalizado', 'Cancelado'])]
     private ?string $status = null;
 
-    // #[ORM\OneToMany(mappedBy: 'event', targetEntity: Lecture::class)]
-    // private Collection $lectures;
+    #[ORM\OneToMany(mappedBy: 'event', targetEntity: Lecture::class)]
+    private Collection $lectures;
 
-    // public function __construct()
-    // {
-    //     $this->lectures = new ArrayCollection();
-    // }
+    public function __construct()
+    {
+        $this->lectures = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -94,6 +94,17 @@ class Event
         return $this;
     }
 
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(string $status): self
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 
     // /**
     //  * @return Collection<int, Lecture>
@@ -124,17 +135,4 @@ class Event
 
     //     return $this;
     // }
-
-    public function getStatus(): ?string
-    {
-        return $this->status;
-    }
-
-    public function setStatus(string $status): self
-    {
-        $this->status = $status;
-
-        return $this;
-    }
-
 }
