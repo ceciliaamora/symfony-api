@@ -1,0 +1,16 @@
+events_add:
+  path: /events/new
+  controller: App\Controller\EventController::add
+
+events_list:
+  path: /events
+  controller: App\Controller\EventController::list
+
+events_edit:
+  path: /events/edit
+  controller: App\Controller\EventController::edit
+
+events_delete:
+  path: /events/delete
+  controller: App\Controller\EventController::delete
+

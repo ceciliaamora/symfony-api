@@ -1,0 +1,20 @@
+api_lectures:
+  path: /api/lectures
+  controller: App\Controller\Api\LectureApiController::getList
+  methods: [GET]
+
+api_lectures_post:
+  path: /api/lectures
+  controller: App\Controller\Api\LectureApiController::create
+  methods: [POST]
+
+api_lectures_delete:
+  path: /api/lectures/{id}
+  controller: App\Controller\Api\LectureApiController::delete
+  methods: [DELETE]
+
+api_lectures_patch:
+  path: /api/lectures/{id}
+  controller: App\Controller\Api\LectureApiController::update
+  methods: [PATCH]
+

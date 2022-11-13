@@ -1,0 +1,25 @@
+api_events_get_list:
+  path: /api/events
+  controller: App\Controller\Api\EventApiController::getList
+  methods: [GET]
+
+api_events_get_one:
+  path: /api/events/{id}
+  controller: App\Controller\Api\EventApiController::getOne
+  methods: [GET]
+
+api_events_post:
+  path: /api/events
+  controller: App\Controller\Api\EventApiController::create
+  methods: [POST]
+
+api_events_delete:
+  path: /api/events/{id}
+  controller: App\Controller\Api\EventApiController::delete
+  methods: [DELETE]
+
+api_events_patch:
+  path: /api/events/{id}
+  controller: App\Controller\Api\EventApiController::update
+  methods: [PATCH]
+

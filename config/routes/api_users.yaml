@@ -1,0 +1,26 @@
+api_users_get_list:
+  path: /api/users
+  controller: App\Controller\Api\UserApiController::getList
+  methods: [GET]
+
+api_users_get_one:
+  path: /api/users/{id}
+  controller: App\Controller\Api\UserApiController::getOne
+  methods: [GET]
+
+api_users_post:
+  path: /api/users
+  controller: App\Controller\Api\UserApiController::create
+  methods: [POST]
+
+api_users_delete:
+  path: /api/users/{id}
+  controller: App\Controller\Api\UserApiController::delete
+  methods: [DELETE]
+
+api_users_patch:
+  path: /api/users/{id}
+  controller: App\Controller\Api\UserApiController::update
+  methods: [PATCH]
+
+

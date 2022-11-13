@@ -1,0 +1,16 @@
+lectures_add:
+  path: /lectures/new
+  controller: App\Controller\LectureController::add
+
+lectures_list:
+  path: /lectures
+  controller: App\Controller\LectureController::list
+
+lectures_edit:
+  path: /lectures/edit
+  controller: App\Controller\LectureController::edit
+
+lectures_delete:
+  path: /lectures/delete
+  controller: App\Controller\LectureController::delete
+
